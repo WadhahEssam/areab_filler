@@ -25,9 +25,7 @@ const puppeteer = require('puppeteer');
   await page.select('.navbar > .nav > li > .language-dropdown > .form-control', 'sa');
 
 
-
-  for (let i = 1; i<=93; i++) {
-    await page.goto(`http://localhost:8081/tasks/${i}/create`);
+    await page.goto(`http://localhost:8081/tasks/${taskID}/create`);
 
     // إرسال
     await page.click('#react-select-2--value > div.Select-placeholder');
@@ -41,10 +39,10 @@ const puppeteer = require('puppeteer');
 
     // رمز العقار
     if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.property_data > div:nth-child(2) > div:nth-child(2) > div > input') !== null) {
-      await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.property_data > div:nth-child(2) > div:nth-child(2) > div > input')
-      await page.keyboard.type('ASDE' + Math.floor(Math.random() * 999999) );
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.property_data > div:nth-child(2) > div:nth-child(2) > div > input')
+        await page.keyboard.type('ASDE' + Math.floor(Math.random() * 999999) );
     }
-      
+        
     // تاريخ التسليم
     await page.waitForSelector('.inputErrorCont > div > .react-datepicker-wrapper > .react-datepicker__input-container > .form-control')
     await page.click('.inputErrorCont > div > .react-datepicker-wrapper > .react-datepicker__input-container > .form-control')
@@ -73,7 +71,7 @@ const puppeteer = require('puppeteer');
     await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.property_data > div:nth-child(4) > div.labelCol.labelCol__select > div > div');
     await page.keyboard.type('أرض');
     await page.keyboard.press(String.fromCharCode(13));
-      
+        
     // صاحب التقييم
     await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.property_data > div:nth-child(5) > div:nth-child(1) > div > input','محمد')
 
@@ -134,11 +132,11 @@ const puppeteer = require('puppeteer');
 
     // خط طول و عرض
     if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(1) > div > input') !== null) {
-      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(1) > div > input','80')
-      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(2) > div > input','120')  
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(1) > div > input','80')
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(2) > div > input','120')  
     } else {
-      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(1) > div > input','80')
-      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(2) > div > input','120')
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(1) > div > input','80')
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(2) > div > input','120')
     }
 
     // اقرب شارب
@@ -159,7 +157,7 @@ const puppeteer = require('puppeteer');
     await page.click('.client-form > .row > .formButtons__cont > span > .labelMargin') 
     await page.waitForSelector('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
     await page.click('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
-  }
+
 
 
   await page.waitFor(2*1000);
