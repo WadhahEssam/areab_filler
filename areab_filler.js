@@ -26,7 +26,10 @@ const puppeteer = require('puppeteer');
 
 
 
-  for (let i = 1; i<=93; i++) {
+  for (let i = 77; i<=93; i++) {
+    if (i==7) {
+      continue;
+    }
     await page.goto(`http://localhost:8081/tasks/${i}/create`);
 
     // إرسال
@@ -103,29 +106,55 @@ const puppeteer = require('puppeteer');
     await page.keyboard.type('الازدهار');
     await page.keyboard.press(String.fromCharCode(13));
 
-    // شمال
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(1) > div > input','30487')
+    if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(1) > div > input') !== null) {
+      // شمال
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(1) > div > input','30487')
 
-    // طول
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(2) > div > input','6534')
+      // طول
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(2) > div > input','6534')
 
-    // جنوب
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','1456')
+      // جنوب
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','1456')
 
-    // طول
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(3) > div:nth-child(2) > div > input','1345')
+      // طول
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(3) > div:nth-child(2) > div > input','1345')
 
-    // شرق
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(4) > div:nth-child(1) > div > input','135456')
+      // شرق
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(4) > div:nth-child(1) > div > input','135456')
 
-    // طول
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(4) > div:nth-child(2) > div > input','31543')
+      // طول
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(4) > div:nth-child(2) > div > input','31543')
 
-    // غرب
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(5) > div:nth-child(1) > div > input','1465')
+      // غرب
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(5) > div:nth-child(1) > div > input','1465')
 
-    // طول
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(5) > div:nth-child(2) > div > input','6875')
+      // طول
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(5) > div:nth-child(2) > div > input','6875')
+    } else {
+      // شمال
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(6) > div:nth-child(1) > div > input','30487')
+
+      // طول
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(6) > div:nth-child(2) > div > input','6534')
+
+      // جنوب
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(7) > div:nth-child(1) > div > input','1456')
+
+      // طول
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(7) > div:nth-child(2) > div > input','1345')
+
+      // شرق
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(8) > div:nth-child(1) > div > input','135456')
+
+      // طول
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(8) > div:nth-child(2) > div > input','31543')
+
+      // غرب
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(9) > div:nth-child(1) > div > input','1465')
+
+      // طول
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(9) > div:nth-child(2) > div > input','6875')
+    }
 
     // Ceckboxes
     await page.click('#inside_city');
@@ -136,14 +165,21 @@ const puppeteer = require('puppeteer');
     if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(1) > div > input') !== null) {
       await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(1) > div > input','80')
       await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(2) > div > input','120')  
-    } else {
-      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(1) > div > input','80')
-      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(2) > div > input','120')
+    } else if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(1) > div > input') !== null){
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(1) > div > input','80')
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(2) > div > input','120')
+    } else if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div > div:nth-child(3) > div.labelRow > div:nth-child(1) > div > input') !== null) {
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div > div:nth-child(3) > div.labelRow > div:nth-child(1) > div > input','80')
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div > div:nth-child(3) > div.labelRow > div:nth-child(2) > div > input','120')
     }
 
-    // اقرب شارب
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
-
+    // اقرب شارع
+    if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input') !== null) {
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
+    } else {
+      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
+    }
+    
     // الجار
     await page.click('#react-select-10--value > div.Select-placeholder');
     await page.keyboard.type('مبني');
@@ -159,10 +195,12 @@ const puppeteer = require('puppeteer');
     await page.click('.client-form > .row > .formButtons__cont > span > .labelMargin') 
     await page.waitForSelector('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
     await page.click('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
+
+    await page.waitFor(2*1000);
+
   }
 
 
-  await page.waitFor(2*1000);
   
   await browser.close();
 })();

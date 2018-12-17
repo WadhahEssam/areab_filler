@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 
   /////////////////// config ////////////////////////
   // the task id you want to create
-  const taskID = 31;
+  const taskID = 3;
 
   const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
@@ -134,9 +134,12 @@ const puppeteer = require('puppeteer');
     if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(1) > div > input') !== null) {
         await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(1) > div > input','80')
         await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(2) > div > input','120')  
-    } else {
+    } else if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(1) > div > input') !== null){
         await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(1) > div > input','80')
         await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(2) > div > input','120')
+    } else if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div > div:nth-child(3) > div.labelRow > div:nth-child(1) > div > input') !== null) {
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div > div:nth-child(3) > div.labelRow > div:nth-child(1) > div > input','80')
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div > div:nth-child(3) > div.labelRow > div:nth-child(2) > div > input','120')
     }
 
     // اقرب شارب
