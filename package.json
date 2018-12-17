@@ -1,0 +1,12 @@
+{
+  "name": "areab_filler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "areab_filler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
