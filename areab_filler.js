@@ -28,7 +28,10 @@ const puppeteer = require('puppeteer');
 
 
   // testing  
-  await page.click('#react-select-12--value > div.Select-placeholder');
+
+
+  // إرسال
+  await page.click('#react-select-2--value > div.Select-placeholder');
   await page.keyboard.type('إرسال');
   await page.keyboard.press(String.fromCharCode(13));
 
@@ -36,10 +39,13 @@ const puppeteer = require('puppeteer');
   await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.property_data > div:nth-child(2) > div:nth-child(1) > div > input');
   await page.keyboard.type('32' + Math.floor(Math.random() * 999999) );
 
+
   // رمز العقار
-  await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.property_data > div:nth-child(2) > div:nth-child(2) > div > input')
-  await page.keyboard.type('ASDE' + Math.floor(Math.random() * 999999) );
-  
+  if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.property_data > div:nth-child(2) > div:nth-child(2) > div > input') !== null) {
+    await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.property_data > div:nth-child(2) > div:nth-child(2) > div > input')
+    await page.keyboard.type('ASDE' + Math.floor(Math.random() * 999999) );
+  }
+    
   // تاريخ التسليم
   await page.waitForSelector('.inputErrorCont > div > .react-datepicker-wrapper > .react-datepicker__input-container > .form-control')
   await page.click('.inputErrorCont > div > .react-datepicker-wrapper > .react-datepicker__input-container > .form-control')
@@ -128,8 +134,13 @@ const puppeteer = require('puppeteer');
   await page.click('#no_asphalt');
 
   // خط طول و عرض
-  await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(1) > div > input','80')
-  await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(2) > div > input','120')
+  if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(1) > div > input') !== null) {
+    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(1) > div > input','80')
+    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.labelRow > div:nth-child(2) > div > input','120')  
+  } else {
+    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(1) > div > input','80')
+    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(1) > div:nth-child(4) > div > div.labelRow > div:nth-child(2) > div > input','120')
+  }
 
   // اقرب شارب
   await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
@@ -149,8 +160,7 @@ const puppeteer = require('puppeteer');
   await page.click('.client-form > .row > .formButtons__cont > span > .labelMargin') 
   await page.waitForSelector('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
   await page.click('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
+  await page.waitFor(10*1000);
   
-  await page.waitFor(2*1000);
-  
-  await browser.close();
+  // await browser.close();
 })();
