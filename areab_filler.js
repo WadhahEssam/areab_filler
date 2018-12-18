@@ -25,8 +25,8 @@ const puppeteer = require('puppeteer');
   await page.select('.navbar > .nav > li > .language-dropdown > .form-control', 'sa');
 
 
-
-  for (let i = 77; i<=93; i++) {
+  // shoud start from 1 and end with 93
+  for (let i = 1; i<=93; i++) {
     if (i==7) {
       continue;
     }
@@ -173,22 +173,37 @@ const puppeteer = require('puppeteer');
         await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.flex.flex_cont > div:nth-child(2) > div > div:nth-child(3) > div.labelRow > div:nth-child(2) > div > input','120')
     }
 
-    // اقرب شارع
+    // اقرب شارب
     if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input') !== null) {
-      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
     } else {
-      await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
     }
-    
     // الجار
-    await page.click('#react-select-10--value > div.Select-placeholder');
-    await page.keyboard.type('مبني');
-    await page.keyboard.press(String.fromCharCode(13));
+    if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div.labelCol.labelCol__select > div > div > div') !== null) {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div.labelCol.labelCol__select > div > div > div');
+        await page.keyboard.type('مبني');
+        await page.keyboard.press(String.fromCharCode(13));
+    } else {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div:nth-child(2) > div:nth-child(3) > div.labelCol.labelCol__select > div > div > div');
+        await page.keyboard.type('مبني');
+        await page.keyboard.press(String.fromCharCode(13));
+    }
 
     // المنسوب
-    await page.click('#react-select-9--value > div.Select-placeholder');
-    await page.keyboard.type('مرتفع');
-    await page.keyboard.press(String.fromCharCode(13));
+    if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(2) > div:nth-child(4) > div > div > div') !== null) {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(2) > div:nth-child(4) > div > div > div');
+        await page.keyboard.type('مرتفع');
+        await page.keyboard.press(String.fromCharCode(13));
+    } else if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(2) > div:nth-child(3) > div > div > div') !== null) {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(2) > div:nth-child(3) > div > div > div');
+        await page.keyboard.type('مرتفع');
+        await page.keyboard.press(String.fromCharCode(13));
+    } else {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div > div > div');
+        await page.keyboard.type('مرتفع');
+        await page.keyboard.press(String.fromCharCode(13));
+    }
 
     // حفظ
     await page.waitForSelector('.client-form > .row > .formButtons__cont > span > .labelMargin') 
@@ -196,7 +211,7 @@ const puppeteer = require('puppeteer');
     await page.waitForSelector('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
     await page.click('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
 
-    await page.waitFor(2*1000);
+    await page.waitFor(2.5*1000);
 
   }
 

@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 
   /////////////////// config ////////////////////////
   // the task id you want to create
-  const taskID = 3;
+  const taskID = 1;
 
   const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
@@ -100,31 +100,56 @@ const puppeteer = require('puppeteer');
     await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__4.location.labelCol > div:nth-child(4) > div:nth-child(2) > div > div > div');
     await page.keyboard.type('الازدهار');
     await page.keyboard.press(String.fromCharCode(13));
-
-    // شمال
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(1) > div > input','30487')
-
-    // طول
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(2) > div > input','6534')
-
-    // جنوب
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','1456')
-
-    // طول
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(3) > div:nth-child(2) > div > input','1345')
-
-    // شرق
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(4) > div:nth-child(1) > div > input','135456')
-
-    // طول
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(4) > div:nth-child(2) > div > input','31543')
-
-    // غرب
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(5) > div:nth-child(1) > div > input','1465')
-
-    // طول
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(5) > div:nth-child(2) > div > input','6875')
-
+    if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(1) > div > input') !== null) {
+        // شمال
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(1) > div > input','30487')
+  
+        // طول
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(2) > div:nth-child(2) > div > input','6534')
+  
+        // جنوب
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','1456')
+  
+        // طول
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(3) > div:nth-child(2) > div > input','1345')
+  
+        // شرق
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(4) > div:nth-child(1) > div > input','135456')
+  
+        // طول
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(4) > div:nth-child(2) > div > input','31543')
+  
+        // غرب
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(5) > div:nth-child(1) > div > input','1465')
+  
+        // طول
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(5) > div:nth-child(2) > div > input','6875')
+      } else {
+        // شمال
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(6) > div:nth-child(1) > div > input','30487')
+  
+        // طول
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(6) > div:nth-child(2) > div > input','6534')
+  
+        // جنوب
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(7) > div:nth-child(1) > div > input','1456')
+  
+        // طول
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(7) > div:nth-child(2) > div > input','1345')
+  
+        // شرق
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(8) > div:nth-child(1) > div > input','135456')
+  
+        // طول
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(8) > div:nth-child(2) > div > input','31543')
+  
+        // غرب
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(9) > div:nth-child(1) > div > input','1465')
+  
+        // طول
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__4.flex.labelCol > div.flex__6.boundaries.labelCol > div:nth-child(9) > div:nth-child(2) > div > input','6875')
+      }
+  
     // Ceckboxes
     await page.click('#inside_city');
     await page.click('#water');
@@ -143,17 +168,36 @@ const puppeteer = require('puppeteer');
     }
 
     // اقرب شارب
-    await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
-
+    if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input') !== null) {
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
+    } else {
+        await page.type('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div > input','شارع الملك عبدالله')
+    }
     // الجار
-    await page.click('#react-select-10--value > div.Select-placeholder');
-    await page.keyboard.type('مبني');
-    await page.keyboard.press(String.fromCharCode(13));
+    if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div.labelCol.labelCol__select > div > div > div') !== null) {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(3) > div.labelCol.labelCol__select > div > div > div');
+        await page.keyboard.type('مبني');
+        await page.keyboard.press(String.fromCharCode(13));
+    } else {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div:nth-child(2) > div:nth-child(3) > div.labelCol.labelCol__select > div > div > div');
+        await page.keyboard.type('مبني');
+        await page.keyboard.press(String.fromCharCode(13));
+    }
 
     // المنسوب
-    await page.click('#react-select-9--value > div.Select-placeholder');
-    await page.keyboard.type('مرتفع');
-    await page.keyboard.press(String.fromCharCode(13));
+    if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(2) > div:nth-child(4) > div > div > div') !== null) {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(2) > div:nth-child(4) > div > div > div');
+        await page.keyboard.type('مرتفع');
+        await page.keyboard.press(String.fromCharCode(13));
+    } else if (await page.$('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(2) > div:nth-child(3) > div > div > div') !== null) {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div.flex__5.labelCol > div:nth-child(2) > div:nth-child(3) > div > div > div');
+        await page.keyboard.type('مرتفع');
+        await page.keyboard.press(String.fromCharCode(13));
+    } else {
+        await page.click('#page-wrapper > div.overflow-container > form > div > div.row.ibox-content.arabic > div.formSection.basic_info > div.flex > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div > div > div');
+        await page.keyboard.type('مرتفع');
+        await page.keyboard.press(String.fromCharCode(13));
+    }
 
     // حفظ
     await page.waitForSelector('.client-form > .row > .formButtons__cont > span > .labelMargin') 
@@ -161,9 +205,7 @@ const puppeteer = require('puppeteer');
     await page.waitForSelector('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
     await page.click('#body > .swal2-container > .swal2-popup > .swal2-actions > .swal2-confirm') 
 
-
-
   await page.waitFor(2*1000);
-  
+
   await browser.close();
 })();
