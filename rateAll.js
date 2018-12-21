@@ -26,7 +26,7 @@ const puppeteer = require('puppeteer');
 
 
   // shoud start from 1 and end with 93
-  for (let i = 90; i<=92; i++) {
+  for (let i = 1; i<=92; i++) {
     if (i==7) {
       continue;
     }
