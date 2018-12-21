@@ -26,7 +26,7 @@ const puppeteer = require('puppeteer');
 
 
   // shoud start from 1 and end with 93
-  for (let i = 27; i<=90; i++) {
+  for (let i = 90; i<=92; i++) {
     if (i==7) {
       continue;
     }
@@ -37,6 +37,8 @@ const puppeteer = require('puppeteer');
     await page.click('#page-wrapper > div.overflow-container > form > div > div.formButtons__cont > div > div:nth-child(2) > div.task-form__action__selectbox > div > div');
     await page.keyboard.type('تدقيق');
     await page.keyboard.press(String.fromCharCode(13));
+
+    await page.waitFor(2000);
 
     await page.waitForSelector('#page-wrapper > div.overflow-container > form > div > div.formButtons__cont > div > div:nth-child(2) > span > button') 
     await page.click('#page-wrapper > div.overflow-container > form > div > div.formButtons__cont > div > div:nth-child(2) > span > button') 
